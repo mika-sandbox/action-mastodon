@@ -16,6 +16,9 @@ action "GitHub Action for Mastodon" {
   env = {
     MASTODON_INSTANCE = "https://mastodon.cloud"
   }
-  args = "\"Someone pushed a new commit!\""
+  args = [
+    "status=\"Someone pushed a new commit!\"",
+    "visibility=private"
+  ]
 }
 ```

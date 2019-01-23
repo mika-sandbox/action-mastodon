@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM node:lts-alpine
 
 LABEL name="GitHub Action for Mastodon"
 LABEL version="0.1.0"
@@ -11,7 +11,13 @@ LABEL com.github.actions.description="Sends a messages to Mastodon Instance"
 LABEL com.github.actions.icon="send"
 LABEL com.github.actions.color="red"
 
-RUN apk --update add curl && rm -rf /var/cache/apk/*
+COPY "package.json" "/package.json"
+COPY "package-lock.json" "/package-lock.json"
+COPY "index.js" "/index.js"
 
-COPY "entrypoint.sh" "/entrypoint.sh"
-ENTRYPOINT ["/entrypoint.sh"]
+RUN npm set progress=false && \
+  npm config set depth=0 && \
+  npm install --production
+
+CMD ["node", "index.js"]
+ENTRYPOINT ["node", "index.js"]

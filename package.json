@@ -1,0 +1,14 @@
+{
+  "name": "action-mastodon",
+  "version": "0.1.0",
+  "description": "GitHub Action that sends a Mastodon toot.",
+  "main": "index.js",
+  "repository": "git@github.com:mika-f/action-mastodon.git",
+  "author": "Mikazuki Fuyuno <mikazuki_fuyuno@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "gar": "^1.0.4"
+  }
+}
