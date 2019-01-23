@@ -1,10 +1,21 @@
 # action-mastodon
-GitHub Action that sends a Mastodon toot. 
+GitHub Action that sends a Mastodon toot.
 
 
-## Environment Variables / Secrets
+## How to use
 
-* `ACCESS_TOKEN`
-  * Your account's access token.
-* `MASTODON_HOST`
-  * Mastodon Instance URL (e.g. `https://mastodon.cloud`)
+```
+workflow "New workflow" {
+  on = "push"
+  resolves = ["GitHub Action for Mastodon"]
+}
+
+action "GitHub Action for Mastodon" {
+  uses = "mika-f/action-mastodon@master"
+  secrets = [ "MASTODON_ACCESS_TOKEN" ]
+  env = {
+    MASTODON_INSTANCE = "https://mastodon.cloud"
+  }
+  args = "\"Someone pushed a new commit!\""
+}
+```
