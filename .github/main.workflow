@@ -9,5 +9,5 @@ action "GitHub Action for Mastodon" {
   env = {
     MASTODON_INSTANCE = "https://don.nako.ne.jp"
   }
-  args = "\"Someone pushed a new commit!\""
+  args = "$GITHUB_ACTOR pushed new commit(s) to $GITHUB_REPOSITORY"
 }
