@@ -10,7 +10,7 @@ action "GitHub Action for Mastodon" {
     MASTODON_INSTANCE = "https://don.nako.ne.jp"
   }
   args = [
-    "status=\"$GITHUB_ACTOR pushed a new commit to $GITHUB_REPOSITORY\"",
+    "status=$GITHUB_ACTOR pushed a new commit to $GITHUB_REPOSITORY",
     "visibility=private"
   ]
 }
